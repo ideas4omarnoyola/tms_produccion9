@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Omar Noyola">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 06</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Librerias -->
+    <script src="../js/librerias/jquery.min.js"></script>
+    <script src="../js/librerias/gsap.min.js"></script>
+
+    <!-- Script de animaciones -->
+    <script src="../js/animaciones.js"></script>
+    <!-- Scripts posicionar elementos -->
+    <script src="../js/redimensionarElementos.js"></script>
+    <script src="../js/posicionar.js"></script>
+
+</head>
+<body class="pagina">
+    
+    <img class="elementos" id="texto" src="../img/pagina07/texto.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="d1" src="../img/pagina07/d1.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="d2" src="../img/pagina07/d2.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="d3" src="../img/pagina07/d3.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="d4" src="../img/pagina07/d4.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="d5" src="../img/pagina07/d5.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="d6" src="../img/pagina07/d6.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="d7" src="../img/pagina07/d7.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="d8" src="../img/pagina07/d8.png" data-posX="0" data-posY="0"/>
+
+    
+    <!-- Script de la página -->
+    <script>
+
+        // Variable----------------------------------------------------
+        let aplicacion = parent;
+        const texto = $('#texto');
+        const d1 = $('#d1');
+        const d2 = $('#d2');
+        const d3 = $('#d3');
+        const d4 = $('#d4');
+        const d5 = $('#d5');
+        const d6 = $('#d6');
+        const d7 = $('#d7');
+        const d8 = $('#d8');
+
+        const informacion = [d1, d2, d3, d4, d5, d6, d7, d8];
+
+        let indexInfo = 0;
+
+        // Audios------------------------------------------------------
+        const audio = [
+            new Audio('../audios/TMS_OEA_M10_07_1.mp3')
+        ]
+
+        const audioDialogo = [
+            new Audio('../audios/TMS_OEA_M10_07_2.mp3'),
+            new Audio('../audios/TMS_OEA_M10_07_3.mp3'),
+            new Audio('../audios/TMS_OEA_M10_07_4.mp3'),
+            new Audio('../audios/TMS_OEA_M10_07_5.mp3'),
+            new Audio('../audios/TMS_OEA_M10_07_6.mp3'),
+            new Audio('../audios/TMS_OEA_M10_07_7.mp3'),
+            new Audio('../audios/TMS_OEA_M10_07_8.mp3'),
+            new Audio('../audios/TMS_OEA_M10_07_9.mp3'),
+        ]
+
+        // Al cargarse la página
+        $(window).on("load", function(){
+            redimensionarElementos();
+            aplicacion.cargando(iniciarContenido);
+        });
+
+        function iniciarContenido(){
+            aplicacion.reproducirAudio(audio[0], narrarIncidentes, 1);
+            animacionEntrada(texto, 'izquierda-derecha', 1, 1);
+        }
+
+        function narrarIncidentes(){
+            aplicacion.reproducirAudio(audioDialogo[indexInfo], siguiente, 1);
+            animacionEntrada(informacion[indexInfo], 'default', 1);
+        }
+
+        function siguiente(){
+            indexInfo++;
+            if(indexInfo < informacion.length){
+                narrarIncidentes();
+            }
+            else{
+                aplicacion.terminaPantalla();
+            }
+        }
+
+    </script>
+</body>
+</html>

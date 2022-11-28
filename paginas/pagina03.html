@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 03</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Librerias -->
+    <script src="../js/librerias/jquery.min.js"></script>
+    <script src="../js/librerias/gsap.min.js"></script>
+
+    <!-- Script de animaciones -->
+    <script src="../js/animaciones.js"></script>
+    <!-- Scripts posicionar elementos -->
+    <script src="../js/redimensionarElementos.js"></script>
+    <script src="../js/posicionar.js"></script>
+
+</head>
+<body class="pagina">
+    <img class="elementos" id="fondo" src="../img/pagina03/fondo.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="texto1" src="../img/pagina03/texto1.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="texto2" src="../img/pagina03/texto2.png" data-posX="0" data-posY="0" alt="">
+
+
+
+    <!-- Script de la página -->
+    <script>
+
+        // Variable----------------------------------------------------
+        let aplicacion = parent;
+
+        const fondo = $('#fondo');
+        const texto1 = $('#texto1');
+        const texto2 = $('#texto2');
+
+        // Audios------------------------------------------------------
+        const audio = [
+            new Audio('../audios/TMS_OEA_M9_03_1.mp3'),
+            new Audio('../audios/TMS_OEA_M9_03_2.mp3'),
+            new Audio('../audios/TMS_OEA_M9_03_3.mp3'),
+        ]
+
+        // Al cargarse la página
+        $(window).on("load", function(){
+            redimensionarElementos();
+            aplicacion.cargando(iniciarContenido);
+        });
+
+        function iniciarContenido(){
+            aplicacion.reproducirAudio(audio[0], locutaTexto1, 1);
+            animacionEntrada(fondo, 'default', 1);
+        }
+
+        function locutaTexto1(){
+            aplicacion.reproducirAudio(audio[1], locutaTexto2, 1);
+            animacionEntrada(texto1, 'izquierda-derecha', 1);
+        }
+        function locutaTexto2(){
+            aplicacion.reproducirAudio(audio[2], activarBoton, 1);
+            animacionEntrada(texto2, 'izquierda-derecha', 1);
+        }
+
+        function activarBoton(){
+            aplicacion.terminaPantalla();
+        }
+
+    </script>
+</body>
+</html>

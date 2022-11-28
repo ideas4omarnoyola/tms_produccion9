@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 04</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Librerias -->
+    <script src="../js/librerias/jquery.min.js"></script>
+    <script src="../js/librerias/gsap.min.js"></script>
+
+    <!-- Script de animaciones -->
+    <script src="../js/animaciones.js"></script>
+    <!-- Scripts posicionar elementos -->
+    <script src="../js/redimensionarElementos.js"></script>
+    <script src="../js/posicionar.js"></script>
+
+</head>
+<body class="pagina">
+    <img class="elementos" id="texto" src="../img/pagina04/texto.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="instrucciones" src="../img/pagina04/instrucciones.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="d1" src="../img/pagina04/d1.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="masInfo" src="../img/pagina04/masInfo.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="boton" src="../img/pagina04/boton.png" data-posX="629" data-posY="315" alt="">
+    <img class="elementos" id="pop" src="../img/pagina04/pop.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="cerrar" src="../img/pagina04/cerrar.png" data-posX="824" data-posY="159" alt="">
+
+
+    <!-- Script de la página -->
+    <script>
+
+        // Variable----------------------------------------------------
+        let aplicacion = parent;
+
+        const texto = $('#texto');
+        const d1 = $('#d1');
+        const masInfo = $('#masInfo');
+        const instrucciones = $('#instrucciones');
+        const boton = $('#boton');
+        const pop = $('#pop');
+        const cerrar = $('#cerrar');
+
+        // Audios------------------------------------------------------
+        const audio = [
+            new Audio('../audios/TMS_OEA_M9_04_1.mp3'),
+            new Audio('../audios/TMS_OEA_M9_04_2.mp3'),
+            new Audio('../audios/TMS_OEA_M9_04_3.mp3'),
+            new Audio('../audios/TMS_OEA_M9_04_4.mp3'),
+        ]
+
+        // Al cargarse la página
+        $(window).on("load", function(){
+            redimensionarElementos();
+            aplicacion.cargando(iniciarContenido);
+        });
+
+        function iniciarContenido(){
+            aplicacion.reproducirAudio(audio[0], locutarInfo, 1);
+            animacionEntrada(texto, 'derecha-izquierda', 1, 1);
+            animacionEntrada(d1, 'default', 1, 1.5);
+        }
+
+        function locutarInfo() {  
+            aplicacion.reproducirAudio(audio[1], dialogo, 1);
+            animacionEntrada(instrucciones, 'derecha-izquierda', 1);
+        }
+
+        function dialogo() {  
+            aplicacion.reproducirAudio(audio[2], verInfo, 1);
+            animacionEntrada(masInfo, 'derecha-izquierda', 1);
+        }
+
+        function verInfo(){
+            parpadear(boton);
+        }
+
+        boton.click(function(){
+            aplicacion.reproducirAudio(audio[3], cerrando, 1);
+            animacionEntrada(pop, 'default', 1);
+            dejarParpadear(boton);
+        });
+
+        function cerrando(){
+            parpadear(cerrar);
+        }
+
+        cerrar.click(function(){
+            animacionSalida(pop, 'default', 1);
+            animacionSalida(cerrar, 'default', 1);
+            aplicacion.terminaPantalla();
+        });
+
+    </script>
+</body>
+</html>

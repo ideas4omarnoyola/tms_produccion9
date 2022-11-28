@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 09</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Librerias -->
+    <script src="../js/librerias/jquery.min.js"></script>
+    <script src="../js/librerias/jquery-ui.min.js"></script>
+    <script src="../js/librerias/jquery.ui.touch-punch.min.js"></script>
+    <script src="../js/librerias/gsap.min.js"></script>
+
+    <!-- Script de animaciones -->
+    <script src="../js/animaciones.js"></script>
+    <!-- Scripts posicionar elementos -->
+    <script src="../js/redimensionarElementos.js"></script>
+    <script src="../js/posicionar.js"></script>
+
+</head>
+<body class="pagina">
+    <img class="elementos" id="titulo" src="../img/pagina08/titulo.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="texto" src="../img/pagina08/texto.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="btnIniciar" src="../img/pagina08/btnIniciar.png" data-posX="614" data-posY="468" alt="">
+
+    <img class="elementos" id="fondoActividad" src="../img/pagina08/fondoActividad.png" data-posX="0" data-posY="0" alt="">
+
+    <div class="elementos drops" data-lugar="3" id="drop3" data-posX="522" data-posY="250" alt=""></div>
+    <div class="elementos drops" data-lugar="2" id="drop2" data-posX="522" data-posY="302" alt=""></div>
+    <div class="elementos drops" data-lugar="1" id="drop1" data-posX="522" data-posY="355" alt=""></div>
+    <div class="elementos drops" data-lugar="5" id="drop5" data-posX="522" data-posY="408" alt=""></div>
+    <div class="elementos drops" data-lugar="4" id="drop4" data-posX="522" data-posY="460" alt=""></div>
+
+    <img class="elementos" id="frase1" src="../img/pagina08/frase1.png" data-posX="266" data-posY="250" alt="">
+    <img class="elementos" id="frase2" src="../img/pagina08/frase2.png" data-posX="266" data-posY="302" alt="">
+    <img class="elementos" id="frase3" src="../img/pagina08/frase3.png" data-posX="266" data-posY="355"alt="">
+    <img class="elementos" id="frase4" src="../img/pagina08/frase4.png" data-posX="266" data-posY="408" alt="">
+    <img class="elementos" id="frase5" src="../img/pagina08/frase5.png" data-posX="266" data-posY="460" alt="">  
+
+    <img class="elementos drags" id="drag1" data-lugar="1" src="../img/pagina08/drag1.png" data-posX="50" data-posY="118" alt="">    
+    <img class="elementos drags" id="drag2" data-lugar="2" src="../img/pagina08/drag2.png" data-posX="284" data-posY="118" alt="">    
+    <img class="elementos drags" id="drag3" data-lugar="3" src="../img/pagina08/drag3.png" data-posX="517" data-posY="118" alt="">
+    <img class="elementos drags" id="drag4" data-lugar="4" src="../img/pagina08/drag4.png" data-posX="751" data-posY="118" alt="">    
+    <img class="elementos drags" id="drag5" data-lugar="5" src="../img/pagina08/drag5.png" data-posX="50" data-posY="159" alt="">    
+
+    <img class="elementos" id="tache1" src="../img/pagina08/tache.png" data-posX="775" data-posY="251" alt="">
+    <img class="elementos" id="tache2" src="../img/pagina08/tache.png" data-posX="775" data-posY="303" alt="">
+    <img class="elementos" id="tache3" src="../img/pagina08/tache.png" data-posX="775" data-posY="354" alt="">
+    <img class="elementos" id="tache4" src="../img/pagina08/tache.png" data-posX="775" data-posY="408" alt="">
+    <img class="elementos" id="tache5" src="../img/pagina08/tache.png" data-posX="775" data-posY="459" alt="">
+
+    <img class="elementos" id="paloma1" src="../img/pagina08/paloma.png" data-posX="775" data-posY="251" alt="">
+    <img class="elementos" id="paloma2" src="../img/pagina08/paloma.png" data-posX="775" data-posY="303" alt="">
+    <img class="elementos" id="paloma3" src="../img/pagina08/paloma.png" data-posX="775" data-posY="354" alt="">
+    <img class="elementos" id="paloma4" src="../img/pagina08/paloma.png" data-posX="775" data-posY="408" alt="">
+    <img class="elementos" id="paloma5" src="../img/pagina08/paloma.png" data-posX="775" data-posY="459" alt="">
+
+    <img class="elementos" id="btnVerificar" src="../img/pagina08/btnVerificar.png" data-posX="445" data-posY="509" alt="">
+
+    <img class="elementos" id="retroBuena" src="../img/pagina08/retroBuena.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="retroMala" src="../img/pagina08/retroMala.png" data-posX="0" data-posY="0" alt="">
+
+    <p class="elementos" id="promedio"></p>
+
+    <img class="elementos" id="reiniciar" src="../img/pagina08/reiniciar.png" data-posX="655" data-posY="423" alt="">
+
+
+    <!-- Script de la página -->
+    <script>
+
+        // Variable----------------------------------------------------
+        let aplicacion = parent;
+
+        const titulo = $('#titulo');
+        const texto = $('#texto');
+        const btnIniciar = $('#btnIniciar');
+        const btnVerificar = $('#btnVerificar');
+
+        const fondoActividad = $('#fondoActividad');
+
+        const frase1 = $('#frase1');
+        const frase2 = $('#frase2');
+        const frase3 = $('#frase3');
+        const frase4 = $('#frase4');
+        const frase5 = $('#frase5');
+
+        const drag1 = $('#drag1');
+        const drag2 = $('#drag2');
+        const drag3 = $('#drag3');
+        const drag4 = $('#drag4');
+        const drag5 = $('#drag5');
+
+        const drags = $('.drags');
+        const drops = $('.drops');
+
+        const tache1 = $('#tache1');
+        const tache2 = $('#tache2');
+        const tache3 = $('#tache3');
+        const tache4 = $('#tache4');
+        const tache5 = $('#tache5');
+
+        const paloma1 = $('#paloma1');
+        const paloma2 = $('#paloma2');
+        const paloma3 = $('#paloma3');
+        const paloma4 = $('#paloma4');
+        const paloma5 = $('#paloma5');
+
+        const retroBuena = $('#retroBuena');
+        const retroMala = $('#retroMala');
+        const promedio = $('#promedio');
+        const reiniciar = $('#reiniciar');
+
+        drops.css({
+            'background': 'transparent',
+            'width': '221px',
+            'height': '33px'
+        });
+
+        let dragSelect;
+        let dropSelect;
+
+        let colocados = 0;
+        let aciertos = 0;
+
+        let enunciado1 = 0;
+        let enunciado2 = 0;
+        let enunciado3 = 0;
+        let enunciado4 = 0;
+        let enunciado5 = 0;
+
+        // Audios------------------------------------------------------
+        const audio = [
+            new Audio('../audios/TMS_OEA_M10_08_1.mp3'),
+            new Audio('../audios/TMS_OEA_M10_08_2.mp3'),
+            new Audio('../audios/TMS_OEA_M10_08_3.mp3'),
+        ]
+
+        // Al cargarse la página
+        $(window).on("load", function(){
+            redimensionarElementos();
+            aplicacion.cargando(iniciarContenido);
+        });
+
+        function iniciarContenido(){
+            aplicacion.reproducirAudio(audio[0], actividad, 1);
+            animacionEntrada(titulo, 'default', 1, 1);
+            animacionEntrada(texto, 'default', 1, 1);
+        }
+
+        function actividad(){
+            parpadear(btnIniciar);
+        }
+
+        btnIniciar.click(function(){
+            if(btnIniciar.css('cursor') == 'pointer'){
+                dejarParpadear(btnIniciar);
+                animacionSalida(texto, 'default', 1);
+                animacionSalida(btnIniciar, 'default', 1);
+                entradaActividad();
+            }
+        });
+
+        function entradaActividad() {  
+            animacionEntrada(fondoActividad, 'default', 1, 1);
+            animacionEntrada(drag1, 'abajo-arriba', 1, 1.5);
+            animacionEntrada(drag2, 'abajo-arriba', 1, 2);
+            animacionEntrada(drag3, 'abajo-arriba', 1, 2.5);
+            animacionEntrada(drag4, 'abajo-arriba', 1, 3);
+            animacionEntrada(drag5, 'abajo-arriba', 1, 3.5);
+            animacionEntrada(frase1, 'default', 1, 1);
+            animacionEntrada(frase2, 'default', 1, 1);
+            animacionEntrada(frase3, 'default', 1, 1);
+            animacionEntrada(frase4, 'default', 1, 1);
+            animacionEntrada(frase5, 'default', 1, 1);
+            animacionEntrada(drops, 'default', 1, 4);
+
+            setTimeout(()=>{
+                completarOraciones();
+                drags.css('cursor', 'grab');
+            }, 4000);
+        }
+
+        function completarOraciones(){
+
+            drags.draggable({
+                revert: true,
+                start: function( event, ui ) {
+                    dragSelect = $(this).data('lugar');
+                }
+            });
+
+            drops.droppable({
+                accept: drags,
+                tolerance: "intersect",
+                drop: function( event, ui ) {
+                    dropSelect = $(this).data('lugar');
+                    soltar();
+                }
+            });
+        }
+
+        function soltar(){
+            // Selecionar los elementos correspondiente
+            const dragActivo = $(`#drag${dragSelect}`);
+            const dropActivo = $(`#drop${dropSelect}`);
+
+            //Sacar el top y el left del drop 
+            const dropTop = dropActivo.css('top');
+            const dropLeft = dropActivo.css('left');
+
+            //Posicionar el drag en el drop
+            dragActivo.css({
+                'top': dropTop,
+                'left': dropLeft
+            });
+
+            //Deshabilitar el regreso
+            dragActivo.draggable({
+                revert: false,
+            });
+            dragActivo.draggable("disable");
+
+            dragActivo.css({
+                cursor: 'default'
+            });
+
+            if (dragSelect === dropSelect) {
+                aciertos++
+
+                if(dragSelect == 1){
+                    enunciado1++;
+                }
+                if(dragSelect == 2){
+                    enunciado2++;
+                }
+                if(dragSelect == 3){
+                    enunciado3++;
+                }
+                if(dragSelect == 4){
+                    enunciado4++;
+                }
+                if(dragSelect == 5){
+                    enunciado5++;
+                }
+            }
+
+            colocados++;
+
+            if(colocados == 5){
+                parpadear(btnVerificar);
+            }
+        }
+
+        btnVerificar.click(function(){
+            dejarParpadear(btnVerificar);
+            animacionSalida(btnVerificar, 'default', 1);
+            verificarEnunciados();
+
+            setTimeout(()=>{
+                evaluar();
+            }, 3000);
+        });
+
+        function verificarEnunciados(){
+
+            if(enunciado1 == 1){
+                animacionEntrada(paloma1, 'default', 1);
+            }
+            else{
+                animacionEntrada(tache1, 'default', 1);
+            }
+
+            if(enunciado2 == 1){
+                animacionEntrada(paloma2, 'default', 1);
+            }
+            else{
+                animacionEntrada(tache2, 'default', 1);
+            }
+
+            if(enunciado3 == 1){
+                animacionEntrada(paloma3, 'default', 1);
+            }
+            else{
+                animacionEntrada(tache3, 'default', 1);
+            }
+
+            if(enunciado4 == 1){
+                animacionEntrada(paloma4, 'default', 1);
+            }
+            else{
+                animacionEntrada(tache4, 'default', 1);
+            }
+
+            if(enunciado5 == 1){
+                animacionEntrada(paloma5, 'default', 1);
+            }
+            else{
+                animacionEntrada(tache5, 'default', 1);
+            }
+        }
+
+        function evaluar() {
+            
+            const calificacion = aciertos * 20;
+            
+            if(calificacion >= 80){
+                bien(calificacion);
+            }
+            else{
+                mal(calificacion);
+            }
+        }
+
+        function bien(calificacion) {
+
+            promedio.html(calificacion);
+
+            promedio.css({
+                'left': '738px',
+                'top': '417px',
+                'color': 'white',
+                'fontSize': '32px'
+            });
+
+            aplicacion.reproducirAudio(audio[1], finalPagina, 1);  
+            animacionEntrada(retroBuena, 'default', 1, 1);
+            animacionEntrada(promedio, 'default', 1, 1);
+        }
+
+        function mal(calificacion) {
+
+            promedio.html(calificacion);
+
+            promedio.css({
+                'left': '708px',
+                'top': '183px',
+                'color': 'white',
+                'fontSize': '32px'
+            });
+
+            aplicacion.reproducirAudio(audio[2], volverIntentar, 1);  
+            animacionEntrada(retroMala, 'default', 1, 1);
+            animacionEntrada(promedio, 'default', 1, 1); 
+        }
+
+        function volverIntentar() {
+            parpadear(reiniciar);
+        }
+
+        reiniciar.click(function(){
+            aplicacion.recargarPagina();
+        });
+
+        function finalPagina(){
+            aplicacion.terminaPantalla();
+        }
+
+    </script>
+</body>
+</html>
