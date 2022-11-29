@@ -56,6 +56,17 @@
     <img class="elementos respuestas5 pointer" id="respuesta9" src="../img/pagina08/respuesta9.png" data-posX="268" data-posY="235" alt="">
     <img class="elementos respuestas5 pointer" id="respuesta10" src="../img/pagina08/respuesta10.png" data-posX="268" data-posY="289" alt="">
 
+    <img class="elementos" id="respuesta1_v" src="../img/pagina08/respuesta1_v.png" data-posX="268" data-posY="235" alt="">
+    <img class="elementos" id="respuesta2_v" src="../img/pagina08/respuesta2_v.png" data-posX="268" data-posY="397" alt="">
+    <img class="elementos" id="respuesta3_v" src="../img/pagina08/respuesta3_v.png" data-posX="268" data-posY="235" alt="">
+    <img class="elementos" id="respuesta4_v" src="../img/pagina08/respuesta4_v.png" data-posX="268" data-posY="343" alt="">
+    <img class="elementos" id="respuesta5_v" src="../img/pagina08/respuesta5_v.png" data-posX="268" data-posY="343" alt="">
+    <img class="elementos" id="respuesta6_v" src="../img/pagina08/respuesta6_v.png" data-posX="268" data-posY="397" alt="">
+    <img class="elementos" id="respuesta7_v" src="../img/pagina08/respuesta7_v.png" data-posX="268" data-posY="235" alt="">
+    <img class="elementos" id="respuesta8_v" src="../img/pagina08/respuesta8_v.png" data-posX="268" data-posY="451" alt="">
+    <img class="elementos" id="respuesta9_v" src="../img/pagina08/respuesta9_v.png" data-posX="268" data-posY="235" alt="">
+    <img class="elementos" id="respuesta10_v" src="../img/pagina08/respuesta10_v.png" data-posX="268" data-posY="289" alt="">
+
  
     <img class="elementos" id="retroBuena" src="../img/pagina08/retroBuena.png" data-posX="0" data-posY="0"/>
     <img class="elementos" id="retroMala" src="../img/pagina08/retroMala.png" data-posX="0" data-posY="0"/>
@@ -97,6 +108,17 @@
         const respuesta9= $('#respuesta9');
         const respuesta10= $('#respuesta10');
 
+        const respuesta1_v= $('#respuesta1_v');
+        const respuesta2_v= $('#respuesta2_v');
+        const respuesta3_v= $('#respuesta3_v');
+        const respuesta4_v= $('#respuesta4_v');
+        const respuesta5_v= $('#respuesta5_v');
+        const respuesta6_v= $('#respuesta6_v');
+        const respuesta7_v= $('#respuesta7_v');
+        const respuesta8_v= $('#respuesta8_v');
+        const respuesta9_v= $('#respuesta9_v');
+        const respuesta10_v= $('#respuesta10_v');
+
 
         const respuestas1 = $('.respuestas1');
         const respuestas2 = $('.respuestas2');
@@ -117,6 +139,8 @@
             new Audio('../audios/TMS_OEA_M9_08_1.mp3'),
             new Audio('../audios/TMS_OEA_M9_08_2.mp3'),
             new Audio('../audios/TMS_OEA_M9_08_3.mp3'),
+            new Audio('../audios/s_bien.mp3'), //3
+            new Audio('../audios/s_mal.mp3'), //4
         ]
 
         // Al cargarse la página
@@ -144,12 +168,13 @@
 
         function question2(){
             numRespuestas = 0;
-            console.log('Numero de respuestas: ', numRespuestas);
 
             animacionSalida(pregunta1, 'default', 1);
             animacionSalida(opciones1, 'default', 1);
             animacionSalida(respuesta1, 'default', 1);
             animacionSalida(respuesta2, 'default', 1);
+            animacionSalida(respuesta1_v, 'default', 1);
+            animacionSalida(respuesta2_v, 'default', 1);
 
             animacionEntrada(pregunta2, 'arriba-abajo', 1, 1);
             animacionEntrada(opciones2, 'derecha-izquierda', 1, 1.5);
@@ -159,12 +184,13 @@
         }
         function question3(){
             numRespuestas = 0;
-            console.log('Numero de respuestas: ', numRespuestas);
 
             animacionSalida(pregunta2, 'default', 1);
             animacionSalida(opciones2, 'default', 1);
             animacionSalida(respuesta3, 'default', 1);
             animacionSalida(respuesta4, 'default', 1);
+            animacionSalida(respuesta3_v, 'default', 1);
+            animacionSalida(respuesta4_v, 'default', 1);
 
             animacionEntrada(pregunta3, 'arriba-abajo', 1, 1);
             animacionEntrada(opciones3, 'derecha-izquierda', 1, 1.5);
@@ -174,12 +200,13 @@
         }
         function question4(){
             numRespuestas = 0;
-            console.log('Numero de respuestas: ', numRespuestas);
 
             animacionSalida(pregunta3, 'default', 1);
             animacionSalida(opciones3, 'default', 1);
             animacionSalida(respuesta5, 'default', 1);
             animacionSalida(respuesta6, 'default', 1);
+            animacionSalida(respuesta5_v, 'default', 1);
+            animacionSalida(respuesta6_v, 'default', 1);
 
             animacionEntrada(pregunta4, 'arriba-abajo', 1, 1);
             animacionEntrada(opciones4, 'derecha-izquierda', 1, 1.5);
@@ -189,12 +216,13 @@
         }
         function question5(){
             numRespuestas = 0;
-            console.log('Numero de respuestas: ', numRespuestas);
 
             animacionSalida(pregunta4, 'default', 1);
             animacionSalida(opciones4, 'default', 1);
             animacionSalida(respuesta7, 'default', 1);
             animacionSalida(respuesta8, 'default', 1);
+            animacionSalida(respuesta7_v, 'default', 1);
+            animacionSalida(respuesta8_v, 'default', 1);
 
             animacionEntrada(pregunta5, 'arriba-abajo', 1, 1);
             animacionEntrada(opciones5, 'derecha-izquierda', 1, 1.5);
@@ -274,6 +302,7 @@
         opciones1.click(function(){
             if(opciones1.css('cursor') == 'pointer'){
                 numRespuestas++;
+                audio[4].play();
 
                 if(numRespuestas === 2){
                     setTimeout(() => {
@@ -285,6 +314,7 @@
         opciones2.click(function(){
             if(opciones2.css('cursor') == 'pointer'){
                 numRespuestas++;
+                audio[4].play();
 
                 if(numRespuestas === 2){
                     setTimeout(() => {
@@ -296,6 +326,7 @@
         opciones3.click(function(){
             if(opciones3.css('cursor') == 'pointer'){
                 numRespuestas++;
+                audio[4].play();
 
                 if(numRespuestas === 2){
                     setTimeout(() => {
@@ -307,6 +338,7 @@
         opciones4.click(function(){
             if(opciones4.css('cursor') == 'pointer'){
                 numRespuestas++;
+                audio[4].play();
 
                 if(numRespuestas === 2){
                     setTimeout(() => {
@@ -318,6 +350,7 @@
         opciones5.click(function(){
             if(opciones5.css('cursor') == 'pointer'){
                 numRespuestas++;
+                audio[4].play();
 
                 if(numRespuestas === 2){
                     setTimeout(() => {
@@ -328,8 +361,11 @@
         });
 
 
-        respuestas1.click(function(){
-            if(respuestas1.css('cursor') == 'pointer'){
+        respuesta1.click(function(){
+            if(respuesta1.css('cursor') == 'pointer'){
+                audio[3].play();
+                animacionEntrada(respuesta1_v, 'default', 1);
+
                 numRespuestas++;
                 aciertos++;
 
@@ -340,8 +376,26 @@
                 }
             }
         });
-        respuestas2.click(function(){
-            if(respuestas2.css('cursor') == 'pointer'){
+        respuesta2.click(function(){
+            if(respuesta2.css('cursor') == 'pointer'){
+                audio[3].play();
+                animacionEntrada(respuesta2_v, 'default', 1);
+
+                numRespuestas++;
+                aciertos++;
+
+                if(numRespuestas === 2){
+                    setTimeout(() => {
+                        question2();
+                    }, 300);
+                }
+            }
+        });
+        respuesta3.click(function(){
+            if(respuesta3.css('cursor') == 'pointer'){
+                audio[3].play();
+                animacionEntrada(respuesta3_v, 'default', 1);
+
                 numRespuestas++;
                 aciertos++;
 
@@ -352,8 +406,26 @@
                 }
             }
         });
-        respuestas3.click(function(){
-            if(respuestas3.css('cursor') == 'pointer'){
+        respuesta4.click(function(){
+            if(respuesta4.css('cursor') == 'pointer'){
+                audio[3].play();
+                animacionEntrada(respuesta4_v, 'default', 1);
+
+                numRespuestas++;
+                aciertos++;
+
+                if(numRespuestas === 2){
+                    setTimeout(() => {
+                        question3();
+                    }, 300);
+                }
+            }
+        });
+        respuesta5.click(function(){
+            if(respuesta5.css('cursor') == 'pointer'){
+                audio[3].play();
+                animacionEntrada(respuesta5_v, 'default', 1);
+
                 numRespuestas++;
                 aciertos++;
 
@@ -364,8 +436,26 @@
                 }
             }
         });
-        respuestas4.click(function(){
-            if(respuestas4.css('cursor') == 'pointer'){
+        respuesta6.click(function(){
+            if(respuesta6.css('cursor') == 'pointer'){
+                audio[3].play();
+                animacionEntrada(respuesta6_v, 'default', 1);
+
+                numRespuestas++;
+                aciertos++;
+
+                if(numRespuestas === 2){
+                    setTimeout(() => {
+                        question4();
+                    }, 300);
+                }
+            }
+        });
+        respuesta7.click(function(){
+            if(respuesta7.css('cursor') == 'pointer'){
+                audio[3].play();
+                animacionEntrada(respuesta7_v, 'default', 1);
+
                 numRespuestas++;
                 aciertos++;
 
@@ -376,8 +466,26 @@
                 }
             }
         });
-        respuestas5.click(function(){
-            if(respuestas5.css('cursor') == 'pointer'){
+        respuesta8.click(function(){
+            if(respuesta8.css('cursor') == 'pointer'){
+                audio[3].play();
+                animacionEntrada(respuesta8_v, 'default', 1);
+
+                numRespuestas++;
+                aciertos++;
+
+                if(numRespuestas === 2){
+                    setTimeout(() => {
+                        question5();
+                    }, 300);
+                }
+            }
+        });
+        respuesta9.click(function(){
+            if(respuesta9.css('cursor') == 'pointer'){
+                audio[3].play();
+                animacionEntrada(respuesta9_v, 'default', 1);
+
                 numRespuestas++;
                 aciertos++;
 
@@ -388,6 +496,23 @@
                 }
             }
         });
+        respuesta10.click(function(){
+            if(respuesta10.css('cursor') == 'pointer'){
+                audio[3].play();
+                animacionEntrada(respuesta10_v, 'default', 1);
+
+                numRespuestas++;
+                aciertos++;
+
+                if(numRespuestas === 2){
+                    setTimeout(() => {
+                        evaluacion();
+                    }, 300);
+                }
+            }
+        });
+
+        
 
         btnReiniciar.click(function(){
             if(btnReiniciar.css('cursor') == 'pointer'){

@@ -24,15 +24,15 @@
     <img class="elementos" id="dialogo" src="../img/pagina06/dialogo.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="instrucciones" src="../img/pagina06/instrucciones.png" data-posX="0" data-posY="0" alt="">
     
-    <img class="elementos botones" id="boton1" src="../img/pagina06/boton1.png" data-posX="167" data-posY="235" alt="">
     <img class="elementos infos" id="info1" src="../img/pagina06/info1.png" data-posX="0" data-posY="0" alt="">
-    <img class="elementos botones" id="boton2" src="../img/pagina06/boton2.png" data-posX="167" data-posY="374" alt="">
     <img class="elementos infos" id="info2" src="../img/pagina06/info2.png" data-posX="0" data-posY="0" alt="">
-    <img class="elementos botones" id="boton3" src="../img/pagina06/boton3.png" data-posX="872" data-posY="217" alt="">
     <img class="elementos infos" id="info3" src="../img/pagina06/info3.png" data-posX="0" data-posY="0" alt="">
-    <img class="elementos botones" id="boton4" src="../img/pagina06/boton4.png" data-posX="878" data-posY="379" alt="">
     <img class="elementos infos" id="info4" src="../img/pagina06/info4.png" data-posX="0" data-posY="0" alt="">
 
+    <img class="elementos botones" id="boton1" src="../img/pagina06/boton1.png" data-posX="160" data-posY="232" alt="">
+    <img class="elementos botones" id="boton2" src="../img/pagina06/boton2.png" data-posX="160" data-posY="371" alt="">
+    <img class="elementos botones" id="boton3" src="../img/pagina06/boton3.png" data-posX="872" data-posY="217" alt="">
+    <img class="elementos botones" id="boton4" src="../img/pagina06/boton4.png" data-posX="878" data-posY="379" alt="">
 
     <!-- Script de la página -->
     <script>
@@ -101,6 +101,7 @@
             $(this).click(function () {  
                 if($(this).css('cursor') == 'pointer'){
                     aplicacion.reproducirAudio(audioBotones[indexInfo], siguiente, 1);
+                    animacionEntrada(informacion[indexInfo], 'derecha-izquierda', 1);
                     dejarParpadear($(this));
                 }
             });
