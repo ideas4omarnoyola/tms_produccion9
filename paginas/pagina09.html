@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Omar Noyola">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 10</title>
+    <title>Página 09</title>
 
     <!-- Estilos -->
     <link rel="stylesheet" href="../css/estilos.css">
@@ -23,19 +23,19 @@
 </head>
 <body class="pagina">
     
-    <img class="elementos" id="texto" src="../img/pagina09/texto.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="cierre" src="../img/pagina09/cierre.png" data-posX="0" data-posY="0" alt="">
     
     <!-- Script de la página -->
     <script>
 
         // Variable----------------------------------------------------
         let aplicacion = parent;
-        const texto = $('#texto');
+        const cierre = $('#cierre');
 
 
         // Audios------------------------------------------------------
         const audio = [
-            new Audio('../audios/TMS_OEA_M10_09_1.mp3')
+            new Audio('../audios/TMS_OEA_M9_08_4.mp3')
         ]
 
         // Al cargarse la página
@@ -46,7 +46,7 @@
 
         function iniciarContenido(){
             aplicacion.reproducirAudio(audio[0], null, 1);
-            animacionEntrada(texto, 'default', 1);
+            animacionEntrada(cierre, 'default', 1);
         }
 
     </script>
